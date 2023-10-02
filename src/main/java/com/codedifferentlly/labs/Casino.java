@@ -1,12 +1,11 @@
 package com.codedifferentlly.labs;
 
-import com.codedifferentlly.labs.players.CardPlayer;
-import com.codedifferentlly.labs.players.Player;
-
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Casino {
-
     private void displayMenu() {
         System.out.println("====================================");
         System.out.println("  WELCOME TO THE CASINO APP");
@@ -16,21 +15,9 @@ public class Casino {
         System.out.println();
     }
 
-    private void goFish() {
-        GoFish goFish = new GoFish("Bruh");
-        Deck deck = new Deck();
-        System.out.println("You selected Go Fish");
-        // Add relevant code for Option 1 functionality
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Player 1 enter your name");
-        String name = scanner.nextLine();
-        CardPlayer player1 = new CardPlayer(name);
-        System.out.println("Player 2 enter your name");
-        String name2 = scanner.nextLine();
-        CardPlayer player2 = new CardPlayer(name2);
-
-
-
+    private void playGoFish() {
+        GoFish goFish = new GoFish();
+        goFish.play();
     }
 
     public void start() {
@@ -45,7 +32,7 @@ public class Casino {
 
             switch (choice) {
                 case 1:
-                    goFish();
+                    playGoFish();
                     break;
                 case 0:
                     System.out.println("Exiting the application. Goodbye!");
@@ -61,6 +48,4 @@ public class Casino {
         Casino app = new Casino();
         app.start();
     }
-
-
 }

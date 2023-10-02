@@ -1,131 +1,79 @@
 package com.codedifferentlly.labs;
 
-import com.codedifferentlly.labs.cards.Card;
-import com.codedifferentlly.labs.cards.CardSuit;
-import com.codedifferentlly.labs.cards.CardValue;
+
 import com.codedifferentlly.labs.players.Player;
 
-public class GoFish extends CardGame{
-private Deck deck;
-    public GoFish(String name) {
-        super(name);
-        Card aceOfSpades = new Card(CardSuit.SPADES, CardValue.ACE);
-        Card twoOfSpades = new Card(CardSuit.SPADES, CardValue.TWO);
-        Card threeOfSpades = new Card(CardSuit.SPADES, CardValue.THREE);
-        Card fourOfSpades = new Card(CardSuit.SPADES, CardValue.FOUR);
-        Card fiveOfSpades = new Card(CardSuit.SPADES, CardValue.FIVE);
-        Card sixOfSpades = new Card(CardSuit.SPADES, CardValue.SIX);
-        Card sevenOfSpades = new Card(CardSuit.SPADES, CardValue.SEVEN);
-        Card eightOfSpades = new Card(CardSuit.SPADES, CardValue.EIGHT);
-        Card nineOfSpades = new Card(CardSuit.SPADES, CardValue.NINE);
-        Card tenOfSpades = new Card(CardSuit.SPADES, CardValue.TEN);
-        Card jackOfSpades = new Card(CardSuit.SPADES, CardValue.JACK);
-        Card queenOfSpades = new Card(CardSuit.SPADES, CardValue.QUEEN);
-        Card kingOfSpades = new Card(CardSuit.SPADES, CardValue.KING);
+import java.util.List;
+import java.util.Scanner;
+    public class GoFish extends CardGame{
+        private final Deck deck;
+        private final Player player1;
+        private final Player player2;
+        private final Scanner scanner;
 
-        Card aceOfHearts = new Card(CardSuit.HEARTS, CardValue.ACE);
-        Card twoOfHearts = new Card(CardSuit.HEARTS, CardValue.TWO);
-        Card threeOfHearts = new Card(CardSuit.HEARTS, CardValue.THREE);
-        Card fourOfHearts = new Card(CardSuit.HEARTS, CardValue.FOUR);
-        Card fiveOfHearts = new Card(CardSuit.HEARTS, CardValue.FIVE);
-        Card sixOfHearts = new Card(CardSuit.HEARTS, CardValue.SIX);
-        Card sevenOfHearts = new Card(CardSuit.HEARTS, CardValue.SEVEN);
-        Card eightOfHearts = new Card(CardSuit.HEARTS, CardValue.EIGHT);
-        Card nineOfHearts = new Card(CardSuit.HEARTS, CardValue.NINE);
-        Card tenOfHearts = new Card(CardSuit.HEARTS, CardValue.TEN);
-        Card jackOfHearts = new Card(CardSuit.HEARTS, CardValue.JACK);
-        Card queenOfHearts = new Card(CardSuit.HEARTS, CardValue.QUEEN);
-        Card kingOfHearts = new Card(CardSuit.HEARTS, CardValue.KING);
+        public GoFish() {
+            deck = new Deck();
+            player1 = new Player();
+            player2 = new Player();
+            scanner = new Scanner(System.in);
+        }
 
-        Card aceOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.ACE);
-        Card twoOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.TWO);
-        Card threeOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.THREE);
-        Card fourOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.FOUR);
-        Card fiveOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.FIVE);
-        Card sixOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.SIX);
-        Card sevenOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.SEVEN);
-        Card eightOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.EIGHT);
-        Card nineOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.NINE);
-        Card tenOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.TEN);
-        Card jackOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.JACK);
-        Card queenOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.QUEEN);
-        Card kingOfDiamonds = new Card(CardSuit.DIAMONDS, CardValue.KING);
+        public void play() {
+            // Deal initial hands
+            List<Card> cardsForPlayer1 = deck.dealHand(5);
+            for (Card card : cardsForPlayer1) {
+                player1.addCardToHand(card);
+            }
 
-        Card aceOfClubs = new Card(CardSuit.CLUBS, CardValue.ACE);
-        Card twoOfClubs = new Card(CardSuit.CLUBS, CardValue.TWO);
-        Card threeOfClubs = new Card(CardSuit.CLUBS, CardValue.THREE);
-        Card fourOfClubs = new Card(CardSuit.CLUBS, CardValue.FOUR);
-        Card fiveOfClubs = new Card(CardSuit.CLUBS, CardValue.FIVE);
-        Card sixOfClubs = new Card(CardSuit.CLUBS, CardValue.SIX);
-        Card sevenOfClubs = new Card(CardSuit.CLUBS, CardValue.SEVEN);
-        Card eightOfClubs = new Card(CardSuit.CLUBS, CardValue.EIGHT);
-        Card nineOfClubs = new Card(CardSuit.CLUBS, CardValue.NINE);
-        Card tenOfClubs = new Card(CardSuit.CLUBS, CardValue.TEN);
-        Card jackOfClubs = new Card(CardSuit.CLUBS, CardValue.JACK);
-        Card queenOfClubs = new Card(CardSuit.CLUBS, CardValue.QUEEN);
-        Card kingOfClubs = new Card(CardSuit.CLUBS, CardValue.KING);
+            List<Card> cardsForPlayer2 = deck.dealHand(5);
+            for (Card card : cardsForPlayer2) {
+                player2.addCardToHand(card);
+            }
 
-        Deck deck = new Deck();
-        deck.addCard(aceOfSpades);
-        deck.addCard(twoOfSpades);
-        deck.addCard(threeOfSpades);
-        deck.addCard(fourOfSpades);
-        deck.addCard(fiveOfSpades);
-        deck.addCard(sixOfSpades);
-        deck.addCard(sevenOfSpades);
-        deck.addCard(eightOfSpades);
-        deck.addCard(nineOfSpades);
-        deck.addCard(tenOfSpades);
-        deck.addCard(jackOfSpades);
-        deck.addCard(queenOfSpades);
-        deck.addCard(kingOfSpades);
+            while (true) {
+                // Display player hands
+                System.out.println("Player 1's hand: " + player1.getHand());
+                System.out.println("Player 2's hand: " + player2.getHand());
 
-        deck.addCard(aceOfHearts);
-        deck.addCard(twoOfHearts);
-        deck.addCard(threeOfHearts);
-        deck.addCard(fourOfHearts);
-        deck.addCard(fiveOfHearts);
-        deck.addCard(sixOfHearts);
-        deck.addCard(sevenOfHearts);
-        deck.addCard(eightOfHearts);
-        deck.addCard(nineOfHearts);
-        deck.addCard(tenOfHearts);
-        deck.addCard(jackOfHearts);
-        deck.addCard(queenOfHearts);
-        deck.addCard(kingOfHearts);
+                // Player 1's turn
+                takeTurn(player1, player2);
+                System.out.println("Player 1's hand: " + player2.getHand());
 
-        deck.addCard(aceOfDiamonds);
-        deck.addCard(twoOfDiamonds);
-        deck.addCard(threeOfDiamonds);
-        deck.addCard(fourOfDiamonds);
-        deck.addCard(fiveOfDiamonds);
-        deck.addCard(sixOfDiamonds);
-        deck.addCard(sevenOfDiamonds);
-        deck.addCard(eightOfDiamonds);
-        deck.addCard(nineOfDiamonds);
-        deck.addCard(tenOfDiamonds);
-        deck.addCard(jackOfDiamonds);
-        deck.addCard(queenOfDiamonds);
-        deck.addCard(kingOfDiamonds);
+                // Check for a winner
+                if (player1.getHand().isEmpty() || player2.getHand().isEmpty()) {
+                    System.out.println("Game over!");
+                    break;
+                }
 
-        deck.addCard(aceOfClubs);
-        deck.addCard(twoOfClubs);
-        deck.addCard(threeOfClubs);
-        deck.addCard(fourOfClubs);
-        deck.addCard(fiveOfClubs);
-        deck.addCard(sixOfClubs);
-        deck.addCard(sevenOfClubs);
-        deck.addCard(eightOfClubs);
-        deck.addCard(nineOfClubs);
-        deck.addCard(tenOfClubs);
-        deck.addCard(jackOfClubs);
-        deck.addCard(queenOfClubs);
-        deck.addCard(kingOfClubs);
+                // Player 2's turn
+                takeTurn(player2, player1);
+                System.out.println("Player 2's hand: " + player1.getHand());
+
+                // Check for a winner again
+                if (player1.getHand().isEmpty() || player2.getHand().isEmpty()) {
+                    System.out.println("Game over!");
+                    break;
+                }
+            }
+        }
+
+        private void takeTurn(Player currentPlayer, Player opponent) {
+            System.out.println("Player " + (currentPlayer == player1 ? "1" : "2") + "'s turn:");
+
+            // Ask for a rank
+            System.out.print("Ask for a rank: ");
+            Rank rank = Rank.valueOf(scanner.nextLine().toUpperCase());
+
+            // Check if opponent has the rank
+            if (opponent.hasCardWithRank(rank)) {
+                List<Card> matchingCards = opponent.giveAllCardsWithRank(rank);
+                currentPlayer.getHand().addAll(matchingCards);
+                System.out.println("Got a match! Received: " + matchingCards);
+            } else {
+                System.out.println("Go Fish! Drawing a card...");
+                Card drawnCard = deck.dealHand(1).get(0);
+                currentPlayer.addCardToHand(drawnCard);
+                System.out.println("Drew a " + drawnCard);
+            }
+        }
     }
-
-    public void dealCards(Player player){
-        deck.deal(7, player);
-    }
-
-
-}

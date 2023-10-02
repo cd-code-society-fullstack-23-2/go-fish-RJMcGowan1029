@@ -7,10 +7,10 @@ public class CardGame implements Game{
     private Player player;
     private Player dealer;
 
-    public CardGame(String name){
+    public CardGame(){
         deck = new Deck();
-        player = new Player(name);
-        dealer = new Player(name);
+        player = new Player();
+        dealer = new Player();
     }
     public Boolean play(Player player){
         return true;

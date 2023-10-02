@@ -1,51 +1,47 @@
 package com.codedifferentlly.labs;
 
-import com.codedifferentlly.labs.cards.Card;
 import com.codedifferentlly.labs.players.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Deck {
-    private static final int MAX_NUMBER_OF_CARDS = 52;
-    private ArrayList<Card> cards;
-    private boolean shuffled;
+    private final ArrayList<Card> cards;
 
     public Deck() {
         cards = new ArrayList<>();
-        shuffled = false;
-
-
-        //How do i initialize the deck
+        initializeDeck();
+        shuffleDeck();
     }
 
-    public void addCard(Card card){
-        cards.add(card);
+    private void initializeDeck() {
+        for (Suit suit : Suit.values()) {
+            for (Rank rank : Rank.values()) {
+                cards.add(new Card(rank, suit));
+            }
+        }
     }
 
-    public ArrayList<Card> viewCards(){
-        return cards;
-    }
-
-    public void shuffle() {
+    private void shuffleDeck() {
         Collections.shuffle(cards);
-        shuffled = true;
+
     }
 
-
-    public Boolean isShuffled() {
-        return shuffled;
+    public List<Card> dealHand(int numCards) {
+        List<Card> hand = new ArrayList<>();
+        for (int i = 0; i < numCards; i++) {
+            if (!cards.isEmpty()) {
+                hand.add(cards.remove(0));
+            } else {
+                System.out.println("The deck is empty!");
+            }
+        }
+        return hand;
     }
 
-    public ArrayList<Card> deal(int numberOfCards, Player player) {
-        if (!shuffled) {
-            shuffle();
-        }
-
-        ArrayList<Card> dealtCards = new ArrayList<>();
-        for (int i = 0; i < numberOfCards; i++) {
-            dealtCards.add(cards.remove(0)); // take from top of deck
-        }
-        return dealtCards;
+    public int size() {
+        return cards.size();
     }
 }
+

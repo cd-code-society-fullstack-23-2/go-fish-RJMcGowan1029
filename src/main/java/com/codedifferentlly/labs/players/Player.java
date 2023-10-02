@@ -1,37 +1,47 @@
 package com.codedifferentlly.labs.players;
 
+import com.codedifferentlly.labs.Card;
+import com.codedifferentlly.labs.Rank;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
-    private String name;
-    private Integer winningStreak;
+    private final List<Card> hand;
 
-    public Player(String name){
-        this.name = name;
-        this.winningStreak = 0;
+    public Player() {
+        hand = new ArrayList<>();
     }
 
-    public String getName(){
-        return name;
+    public List<Card> getHand() {
+        return hand;
     }
 
-    public void setName(String name){
-        this.name = name;
+    public void addCardToHand(Card card) {
+        hand.add(card);
     }
 
-    public Integer getWinningStreak(){
-        return winningStreak;
+    public void removeCardFromHand(Card card) {
+        hand.remove(card);
     }
 
-    public void addWin(){
-        winningStreak++;
+    public boolean hasCardWithRank(Rank rank) {
+        for (Card card : hand) {
+            if (card.rank == rank) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void resetWin(){
-        winningStreak = 0;
+    public List<Card> giveAllCardsWithRank(Rank rank) {
+        List<Card> matchingCards = new ArrayList<>();
+        for (Card card : hand) {
+            if (card.rank == rank) {
+                matchingCards.add(card);
+            }
+        }
+        hand.removeAll(matchingCards);
+        return matchingCards;
     }
-
-    public String toString(){
-        return String.format("Name: %s, Wins: %d", name, winningStreak);
-    }
-
-
 }
