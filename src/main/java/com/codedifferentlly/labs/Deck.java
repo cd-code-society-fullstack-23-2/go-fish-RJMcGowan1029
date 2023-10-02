@@ -1,6 +1,7 @@
 package com.codedifferentlly.labs;
 
 import com.codedifferentlly.labs.cards.Card;
+import com.codedifferentlly.labs.players.Player;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,6 +23,10 @@ public class Deck {
         cards.add(card);
     }
 
+    public ArrayList<Card> viewCards(){
+        return cards;
+    }
+
     public void shuffle() {
         Collections.shuffle(cards);
         shuffled = true;
@@ -32,7 +37,7 @@ public class Deck {
         return shuffled;
     }
 
-    public ArrayList<Card> deal(int numberOfCards) {
+    public ArrayList<Card> deal(int numberOfCards, Player player) {
         if (!shuffled) {
             shuffle();
         }

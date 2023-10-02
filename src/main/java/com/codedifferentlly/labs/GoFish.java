@@ -3,6 +3,7 @@ package com.codedifferentlly.labs;
 import com.codedifferentlly.labs.cards.Card;
 import com.codedifferentlly.labs.cards.CardSuit;
 import com.codedifferentlly.labs.cards.CardValue;
+import com.codedifferentlly.labs.players.Player;
 
 public class GoFish extends CardGame{
 private Deck deck;
@@ -122,8 +123,8 @@ private Deck deck;
         deck.addCard(kingOfClubs);
     }
 
-    public void dealCards(){
-        deck.deal(7);
+    public void dealCards(Player player){
+        deck.deal(7, player);
     }
 
 

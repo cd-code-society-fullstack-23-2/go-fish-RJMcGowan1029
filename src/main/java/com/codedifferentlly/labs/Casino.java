@@ -1,5 +1,6 @@
 package com.codedifferentlly.labs;
 
+import com.codedifferentlly.labs.players.CardPlayer;
 import com.codedifferentlly.labs.players.Player;
 
 import java.util.Scanner;
@@ -17,15 +18,17 @@ public class Casino {
 
     private void goFish() {
         GoFish goFish = new GoFish("Bruh");
+        Deck deck = new Deck();
         System.out.println("You selected Go Fish");
         // Add relevant code for Option 1 functionality
         Scanner scanner = new Scanner(System.in);
         System.out.println("Player 1 enter your name");
         String name = scanner.nextLine();
-        Player player1 = new Player(name);
+        CardPlayer player1 = new CardPlayer(name);
         System.out.println("Player 2 enter your name");
         String name2 = scanner.nextLine();
-        Player player2 = new Player(name2);
+        CardPlayer player2 = new CardPlayer(name2);
+
 
 
     }
