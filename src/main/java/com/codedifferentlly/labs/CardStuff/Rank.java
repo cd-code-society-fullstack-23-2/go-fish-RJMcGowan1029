@@ -1,4 +1,4 @@
-package com.codedifferentlly.labs;
+package com.codedifferentlly.labs.CardStuff;
 
 public enum Rank {
     TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE

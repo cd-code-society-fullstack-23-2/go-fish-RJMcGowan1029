@@ -1,4 +1,4 @@
-package com.codedifferentlly.labs;
+package com.codedifferentlly.labs.CardStuff;
 
 public class Card {
     public Rank rank;

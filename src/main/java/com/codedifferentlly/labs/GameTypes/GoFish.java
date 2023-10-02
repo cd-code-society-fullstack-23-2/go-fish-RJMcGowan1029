@@ -1,11 +1,15 @@
-package com.codedifferentlly.labs;
+package com.codedifferentlly.labs.GameTypes;
 
 
+import com.codedifferentlly.labs.CardStuff.Card;
+import com.codedifferentlly.labs.CardStuff.Deck;
+import com.codedifferentlly.labs.CardStuff.Rank;
+import com.codedifferentlly.labs.GameTypes.CardGame;
 import com.codedifferentlly.labs.players.Player;
 
 import java.util.List;
 import java.util.Scanner;
-    public class GoFish extends CardGame{
+    public class GoFish extends CardGame {
         private final Deck deck;
         private final Player player1;
         private final Player player2;
@@ -49,7 +53,7 @@ import java.util.Scanner;
                 takeTurn(player2, player1);
                 System.out.println("Player 2's hand: " + player1.getHand());
 
-                // Check for a winner again
+                // Check for a winner
                 if (player1.getHand().isEmpty() || player2.getHand().isEmpty()) {
                     System.out.println("Game over!");
                     break;

@@ -1,7 +1,7 @@
 package com.codedifferentlly.labs.players;
 
-import com.codedifferentlly.labs.Card;
-import com.codedifferentlly.labs.Rank;
+import com.codedifferentlly.labs.CardStuff.Card;
+import com.codedifferentlly.labs.CardStuff.Rank;
 
 import java.util.ArrayList;
 import java.util.List;

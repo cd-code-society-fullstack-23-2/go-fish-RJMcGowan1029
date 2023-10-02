@@ -1,6 +1,8 @@
-package com.codedifferentlly.labs;
+package com.codedifferentlly.labs.CardStuff;
 
-import com.codedifferentlly.labs.players.Player;
+import com.codedifferentlly.labs.CardStuff.Card;
+import com.codedifferentlly.labs.CardStuff.Rank;
+import com.codedifferentlly.labs.CardStuff.Suit;
 
 import java.util.ArrayList;
 import java.util.Collections;

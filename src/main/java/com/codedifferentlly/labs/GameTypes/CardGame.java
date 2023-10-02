@@ -1,8 +1,9 @@
-package com.codedifferentlly.labs;
+package com.codedifferentlly.labs.GameTypes;
 
+import com.codedifferentlly.labs.CardStuff.Deck;
 import com.codedifferentlly.labs.players.Player;
 
-public class CardGame implements Game{
+public class CardGame implements Game {
     private Deck deck;
     private Player player;
     private Player dealer;

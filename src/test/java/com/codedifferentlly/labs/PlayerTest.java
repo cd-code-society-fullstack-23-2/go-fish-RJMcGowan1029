@@ -1,5 +1,8 @@
 package com.codedifferentlly.labs;
 
+import com.codedifferentlly.labs.CardStuff.Card;
+import com.codedifferentlly.labs.CardStuff.Rank;
+import com.codedifferentlly.labs.CardStuff.Suit;
 import com.codedifferentlly.labs.players.Player;
 import org.junit.jupiter.api.Test;
 

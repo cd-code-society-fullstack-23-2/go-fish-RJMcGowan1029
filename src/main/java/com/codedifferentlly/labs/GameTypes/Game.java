@@ -1,4 +1,4 @@
-package com.codedifferentlly.labs;
+package com.codedifferentlly.labs.GameTypes;
 
 import com.codedifferentlly.labs.players.Player;
 

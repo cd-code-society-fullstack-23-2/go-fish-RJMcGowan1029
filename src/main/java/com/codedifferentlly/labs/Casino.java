@@ -1,8 +1,7 @@
 package com.codedifferentlly.labs;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import com.codedifferentlly.labs.GameTypes.GoFish;
+
 import java.util.Scanner;
 
 public class Casino {
@@ -28,7 +27,7 @@ public class Casino {
 
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
-            scanner.nextLine();  // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
