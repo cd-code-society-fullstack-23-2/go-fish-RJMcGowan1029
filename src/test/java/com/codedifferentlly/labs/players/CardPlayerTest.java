@@ -1,6 +1,8 @@
 package com.codedifferentlly.labs.players;
 
 import com.codedifferentlly.labs.cards.Card;
+import com.codedifferentlly.labs.cards.CardSuit;
+import com.codedifferentlly.labs.cards.CardValue;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,9 +12,9 @@ public class CardPlayerTest {
 
     @Test
     public void addCardsTest01(){
-        Card card = new Card();
+        Card card1 = new Card(CardSuit.CLUBS, CardValue.ACE);
         ArrayList cards = new ArrayList();
-        cards.add(card);
+        cards.add(card1);
 
         CardPlayer player = new CardPlayer("Beyonce");
         player.addCards(cards);
@@ -25,15 +27,15 @@ public class CardPlayerTest {
 
     @Test
     public void removeCardsTest01(){
-        Card card = new Card();
-        Card cardieb = new Card();
-        Card playBoiCard = new Card();
+        Card card1 = new Card(CardSuit.CLUBS, CardValue.ACE);
+        Card cardieb = new Card(CardSuit.CLUBS, CardValue.SEVEN);
+        Card playBoiCard = new Card(CardSuit.SPADES, CardValue.TWO);
         ArrayList cards = new ArrayList();
-        cards.add(card);
+        cards.add(card1);
         cards.add(cardieb);
         cards.add(playBoiCard);
 
-        CardPlayer player = new CardPlayer("Beyonce");
+        CardPlayer player = new CardPlayer("Dat Dawg");
         player.addCards(cards);
         player.removeCards(2);
         Integer expected = 1;
